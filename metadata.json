@@ -1,0 +1,9 @@
+{
+  "name": "Builderverse Pro Plus v1 v2",
+  "description": "Builderverse ai app, BOB MATE AI voice control assistant  , Profile page ai super promotional engine ESTIMATOR PRO PLUS AI-powered estimating, cost-control, and compliance engine for the UK & Northern Ireland construction industry. It produces regionally accurate costings, flags risks, and generates builder-first outputs.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation",
+    "camera"
+  ]
+}

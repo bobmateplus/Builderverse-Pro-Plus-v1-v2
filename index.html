@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimator Pro Plus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Keyframe animations */
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slide-in-right {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        /* Logo Animation Keyframes */
+        @keyframes draw-logo {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        @keyframes pulse-core {
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 2px #5eead4); /* teal-300 */
+            }
+            50% {
+                transform: scale(1.2);
+                filter: drop_shadow(0 0 5px #5eead4); /* teal-300 */
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fade-in 0.5s ease-out forwards;
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.5s ease-out forwards;
+        }
+        .animate-slide-in-right {
+            animation: slide-in-right 0.3s ease-out forwards;
+        }
+
+        /* Logo Styles */
+        .logo-cube-face {
+            stroke: #2dd4bf; /* teal-400 */
+            stroke-width: 0.75;
+            fill: none;
+            stroke-dasharray: 60;
+            stroke-dashoffset: 60;
+            animation: draw-logo 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+        }
+        .logo-core {
+            fill: #2dd4bf; /* teal-400 */
+            opacity: 0;
+            transform-origin: center;
+            animation: pulse-core 2.5s infinite ease-in-out 1.5s, fade-in 0.5s ease-out 1.5s forwards;
+        }
+
+        /* Profile Page Styles */
+        .profile-panel {
+            background-color: #1e293b; /* slate-800 */
+            border: 1px solid #334155; /* slate-700 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 8px rgba(45, 212, 191, 0.7);
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            .printable-area, .printable-area * {
+                visibility: visible;
+            }
+
+            .printable-area {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                background: white !important;
+                padding: 1.5rem;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            /* Ensure prose content is readable on paper */
+            .prose {
+                color: black !important;
+            }
+            .prose h1, .prose h2, .prose h3, .prose h4, .prose strong, .prose th {
+                color: black !important;
+            }
+            .prose code {
+                background-color: #e5e7eb !important;
+                color: #1f2937 !important;
+            }
+            .prose table, .prose td, .prose th {
+                border-color: #d1d5db !important;
+            }
+            .prose thead {
+                background-color: #f3f4f6 !important;
+            }
+            .prose a {
+                text-decoration: none !important;
+                color: #000 !important;
+            }
+            .prose blockquote {
+                border-color: #d1d5db !important;
+                color: #374151 !important;
+            }
+
+            /* Styles for Checklist Modal printing */
+            .printable-checklist, .printable-checklist * {
+                visibility: visible;
+            }
+            .printable-checklist {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                background: white !important;
+                color: black !important;
+                padding: 2rem;
+            }
+            .printable-checklist .non-printable {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 overflow-x-hidden">
+    <div id="root"></div>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.25.0"
+      }
+    }
+    </script>
+    <script type="module" src="./index.tsx"></script>
+</body>
+</html>
